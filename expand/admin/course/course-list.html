@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:include="_meta :: header">
+    <title>列表</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>XX管理 <span
+            class="c-gray en">&gt;</span>XX模块<a class="btn btn-success radius r"
+                                                style="line-height:1.6em;margin-top:3px"
+                                                href="javascript:location.replace(location.href);" title="刷新"><i
+                class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+    <form action="#" th:action="@{/admin/course}" method="post">
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <fieldset class="layui-elem-field">
+                <legend>XXX列表</legend>
+                <div class="layui-field-box">
+
+                    <hr style="margin: 0">
+                    <div class="cl pd-5 bg-1 bk-gray">
+						<span class="l">
+						<a href="javascript:;"
+                           onclick="deleteAll('/admin/course/deleteAll')"
+                           class="layui-btn  layui-btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+						<a href="javascript:;"
+                           onclick="layer_show('添加','/admin/course/addBefore',900,500)"
+                           class="layui-btn  layui-btn-normal radius"><i class="Hui-iconfont">&#xe600;</i> 添加</a>
+						</span>
+                        <span class="r wei-height">共有数据：<strong th:text="${pageInfo.total}"></strong> 条</span>
+                    </div>
+                    <hr>
+
+                    <div class="cl pd-5 bg-1 bk-gray ">
+                        <div class="searchByField">
+                                         <input type="input-text" class="input-text" th:value="${searchInfo.subject}" name="subject" placeholder="搜索名称" sid="subject"/>
+                                         <input type="input-text" class="input-text" th:value="${searchInfo.courseInfor}" name="courseInfor" placeholder="搜索课程信息录入" sid="courseInfor"/>
+                                         <input type="input-text" class="input-text" th:value="${searchInfo.courseTimePeriod}" name="courseTimePeriod" placeholder="搜索课程时间" sid="courseTimePeriod"/>
+                                         <input type="input-text" class="input-text" th:value="${searchInfo.teacherNum}" name="teacherNum" placeholder="搜索职工号" sid="teacherNum"/>
+                                         <input type="input-text" class="input-text" th:value="${searchInfo.classTime}" name="classTime" placeholder="搜索上课时间" sid="classTime"/>
+                                         <input type="input-text" class="input-text" th:value="${searchInfo.classRoom}" name="classRoom" placeholder="搜索上课教室" sid="classRoom"/>
+                                         <input type="input-text" class="input-text" th:value="${searchInfo.numLimit}" name="numLimit" placeholder="搜索人数限制" sid="numLimit"/>
+                                         <input type="input-text" class="input-text" th:value="${searchInfo.ageLimit}" name="ageLimit" placeholder="搜索年龄限制" sid="ageLimit"/>
+                                         <input type="input-text" class="input-text" th:value="${searchInfo.startTime}" name="startTime" placeholder="搜索开始时间" sid="startTime"/>
+                                         <input type="input-text" class="input-text" th:value="${searchInfo.courseFee}" name="courseFee" placeholder="搜索课程费用" sid="courseFee"/>
+                            <button type="submit"
+                                    class="layui-btn  layui-btn-success radius"><i
+                                        class="Hui-iconfont">&#xe665;</i> 搜索
+                            </button>
+                        </div>
+                    </div>
+
+                    <table class="layui-table text-c">
+                        <thead>
+                        <tr class="text-c">
+                            <th width="25"><input type="checkbox" name="" value=""/></th>
+                            <th width="25">序号</th>
+                                <th width="40">名称</th>
+                                <th width="40">课程信息录入</th>
+                                <th width="40">课程时间</th>
+                                <th width="40">职工号</th>
+                                <th width="40">上课时间</th>
+                                <th width="40">上课教室</th>
+                                <th width="40">人数限制</th>
+                                <th width="40">年龄限制</th>
+                                <th width="40">开始时间</th>
+                                <th width="40">课程费用</th>
+                            <th width="100">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="text-c" th:if="${pageInfo.list.size() == 0}">
+                            <td colspan="15"><strong>暂无数据</strong></td>
+                        </tr>
+                        <tr class="text-c" th:each="course,count:${pageInfo.list}">
+                            <td><input type="checkbox" value="1" th:value="${course.id}"
+                                       name="id"/></td>
+                            <td th:text="${count.count}"></td>
+                                    <td th:text="${course.subject}"></td>
+                                    <td th:text="${course.courseInfor}"></td>
+                                    <td th:text="${course.courseTimePeriod}"></td>
+                                    <td th:text="${course.teacherNum}"></td>
+                                    <td th:text="${course.classTime}"></td>
+                                    <td th:text="${course.classRoom}"></td>
+                                    <td th:text="${course.numLimit}"></td>
+                                    <td th:text="${course.ageLimit}"></td>
+                                    <td th:text="${course.startTime}"></td>
+                                    <td th:text="${course.courseFee}"></td>
+                            <td class="td-manage">
+                                <a title="编辑" href="javascript:;"
+                                   th:onclick="'javascript:layer_show(\'编辑\',\'/admin/'+'course'+'/editBefore/'+${course.id}+'\',900,500)'"
+                                   class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                                <a title="删除" href="javascript:;"
+                                   th:onclick="'javascript:deleteById(\'/admin/'+'course'+'/delete/'+${course.id}+'\')'"
+                                   class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </fieldset>
+        </div>
+        <div th:include="_pagination :: page"></div>
+    </form>
+</div>
+<!--_footer 作为公共模版分离出去-->
+<div th:replace="_footer :: footerjs">
+</div>
+<!--/_footer 作为公共模版分离出去-->
+<script>
+    //日期时间范围选择
+    laydate.render({
+
+    });
+    lay('.timeSpace').each(function(){
+        laydate.render({
+            elem: this
+            ,type: 'datetime'
+            ,range: true //或 range: '~' 来自定义分割字符
+        });
+    });
+
+</script>
+</body>
+</html>
