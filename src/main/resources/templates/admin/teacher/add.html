@@ -5,7 +5,19 @@
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal"  id="form-person-add" action="#" th:action="@{/admin/person/add}">
+	<form class="form form-horizontal"  id="form-teacher-add" action="#" th:action="@{/admin/teacher/add}">
+        <div class="row cl">
+             <label class="form-label col-xs-2 col-sm-2"><span class="c-red">*</span>职工号：</label>
+            <div class="formControls col-xs-10 col-sm-10">
+                <input type="input-text" class="input-text" name="teacherNum" placeholder="请填写职工号" id="teacherNum"/>
+            </div>
+        </div>
+        <div class="row cl">
+             <label class="form-label col-xs-2 col-sm-2"><span class="c-red">*</span>密码：</label>
+            <div class="formControls col-xs-10 col-sm-10">
+                <input type="input-text" class="input-text" name="pwd" placeholder="请填写密码" id="pwd"/>
+            </div>
+        </div>
         <div class="row cl">
              <label class="form-label col-xs-2 col-sm-2"><span class="c-red">*</span>姓名：</label>
             <div class="formControls col-xs-10 col-sm-10">
@@ -13,9 +25,13 @@
             </div>
         </div>
         <div class="row cl">
-             <label class="form-label col-xs-2 col-sm-2"><span class="c-red">*</span>编号：</label>
+             <label class="form-label col-xs-2 col-sm-2"><span class="c-red">*</span>性别：</label>
             <div class="formControls col-xs-10 col-sm-10">
-                <input type="input-text" class="input-text" name="code" placeholder="请填写编号" id="code"/>
+                <!--<input type="input-text" class="input-text" name="gender" placeholder="请填写性别" id="gender"/>-->
+                <select class="input-text" name="gender" placeholder="请填写性别" id="gender">
+                    <option>男</option>
+                    <option>女</option>
+                </select>
             </div>
         </div>
 	<div class="row cl">
@@ -34,12 +50,18 @@
 <!--请在下方写此页面业务相关的脚本-->
 <script>
  $(function(){
-	$("#form-person-add").validate({
+	$("#form-teacher-add").validate({
 		rules:{
+            teacherNum:{
+                required: true,
+			},
+            pwd:{
+                required: true,
+			},
             name:{
                 required: true,
 			},
-            code:{
+            gender:{
                 required: true,
 			},
 		},
@@ -49,7 +71,7 @@
 		submitHandler:function(form){
 				$(form).ajaxSubmit({
 				type: 'POST',
-				url: "/admin/person/add" ,
+				url: "/admin/teacher/add" ,
 				success: function(data){
 					if(data.code == "0"){
 						layer.designMsg('添加成功!',1,function(){

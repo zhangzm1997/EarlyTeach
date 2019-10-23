@@ -7,12 +7,15 @@ import com.mbyte.easy.admin.entity.Person;
 import com.mbyte.easy.admin.service.IPersonService;
 import com.mbyte.easy.common.controller.BaseController;
 import com.mbyte.easy.common.web.AjaxResult;
+import com.mbyte.easy.util.FileUtil;
 import com.mbyte.easy.util.PageInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.List;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -77,7 +80,8 @@ public class PersonController extends BaseController  {
     */
     @PostMapping("add")
     @ResponseBody
-    public AjaxResult add(Person person){
+    public AjaxResult add(Person person, @RequestParam("file")MultipartFile file){
+        person.setFilePath(FileUtil.uploadSuffixPath+FileUtil.uploadFile(file));
         return toAjax(personService.save(person));
     }
     /**
@@ -96,7 +100,10 @@ public class PersonController extends BaseController  {
     */
     @PostMapping("edit")
     @ResponseBody
-    public AjaxResult edit(Person person){
+    public AjaxResult edit(Person person, @RequestParam(value = "file",required = false)MultipartFile file){
+        if(file != null){
+            person.setFilePath(FileUtil.uploadSuffixPath+FileUtil.uploadFile(file));
+        }
         return toAjax(personService.updateById(person));
     }
     /**

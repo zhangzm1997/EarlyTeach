@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="_meta :: header">
+    <title>编辑</title>
+</head>
+<body>
+<article class="page-container">
+    <form class="form form-horizontal" id="form-student-edit" action="#"
+          th:action="@{/admin/student/edit}" th:object="${student}">
+        <input type="hidden" name="id" th:value="${student.id}"/>
+                <div class="row cl">
+                    <label class="form-label col-xs-2 col-sm-2"><span
+                                class="c-red">*</span>学号：</label>
+                            <div class="formControls col-xs-10 col-sm-10">
+                                <input type="input-text" class="input-text" th:value="${student.studentNum}" name="studentNum"  placeholder="修改学号" id="studentNum"/>
+                            </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-2 col-sm-2"><span
+                                class="c-red">*</span>密码：</label>
+                            <div class="formControls col-xs-10 col-sm-10">
+                                <input type="input-text" class="input-text" th:value="${student.pwd}" name="pwd"  placeholder="修改密码" id="pwd"/>
+                            </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-2 col-sm-2"><span
+                                class="c-red">*</span>姓名：</label>
+                            <div class="formControls col-xs-10 col-sm-10">
+                                <input type="input-text" class="input-text" th:value="${student.name}" name="name"  placeholder="修改姓名" id="name"/>
+                            </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-2 col-sm-2"><span
+                                class="c-red">*</span>性别：</label>
+                            <div class="formControls col-xs-10 col-sm-10">
+                                <!--<input type="input-text" class="input-text" th:value="${student.gender}" name="gender"  placeholder="修改性别" id="gender"/>-->
+                                <select class="input-text" th:value="${student.gender}" name="gender"  placeholder="修改性别" id="gender">
+                                    <option>男</option>
+                                    <option>女</option>
+                                </select>
+                            </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-2 col-sm-2"><span
+                                class="c-red">*</span>出生年月：</label>
+                            <div class="formControls col-xs-10 col-sm-10">
+                                <input type="date" class="input-text" th:value="${student.born}" name="born"  placeholder="修改出生年月" id="born"/>
+                            </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-2 col-sm-2"><span
+                                class="c-red">*</span>账户余额：</label>
+                            <div class="formControls col-xs-10 col-sm-10">
+                                <input type="input-text" class="input-text" th:value="${student.balance}" name="balance"  placeholder="修改账户余额" id="balance"/>
+                            </div>
+                    </div>
+                </div>
+        <div class="row cl">
+            <div class="col-xs-3 col-sm-3 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" id="subbtn" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;"/>
+                <input class="btn radius" id="reset" type="reset" value="&nbsp;&nbsp;重置&nbsp;&nbsp;"/>
+            </div>
+        </div>
+    </form>
+</article>
+<!--_footer 作为公共模版分离出去-->
+<div th:replace="_footer :: footerjs"></div>
+<div th:replace="_ueditor :: ueditor"></div>
+<!--/_footer 作为公共模版分离出去-->
+<!--请在下方写此页面业务相关的脚本-->
+<script>
+    $(function () {
+        $("#form-student-edit").validate({
+            rules: {
+        studentNum:
+        {
+            required: true,
+        },
+        pwd:
+        {
+            required: true,
+        },
+        name:
+        {
+            required: true,
+        },
+        gender:
+        {
+            required: true,
+        },
+        born:
+        {
+            required: true,
+        },
+        balance:
+        {
+            required: true,
+        },
+    },
+        onkeyup:false,
+            debug
+    :
+        true,
+            success
+    :
+        "valid",
+            submitHandler
+    :
+
+        function (form) {
+            $(form).ajaxSubmit({
+                type: 'POST',
+                url: "/admin/student/edit",
+                success: function (data) {
+                    if (data.code == "0") {
+                        layer.designMsg('编辑成功!', 1, function () {
+                            var index = parent.layer.getFrameIndex(window.name);
+                            parent.location.reload();
+                            parent.layer.close(index);
+                        });
+                    } else {
+                        layer.designMsg('编辑失败!');
+                    }
+                },
+                error: function () {
+                    layer.designMsg('编辑异常!', 5);
+                }
+            });
+        }
+    })
+        ;
+    });
+
+    lay('.timeSpace').each(function(){
+        laydate.render({
+            elem: this
+            ,trigger: 'click'
+            ,type: 'datetime'
+        });
+    });
+
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

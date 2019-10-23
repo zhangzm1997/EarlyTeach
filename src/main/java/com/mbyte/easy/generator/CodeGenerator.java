@@ -93,8 +93,6 @@ public class CodeGenerator {
             ignorePrefix = scanner("前缀");
         }
 
-
-
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(moduleName);
@@ -152,7 +150,7 @@ public class CodeGenerator {
                 return entityFile;
             }
         });
-//
+
         focList.add(new FileOutConfig("/generator/template/list.html.ftl") {
             @Override
             public String outputFile(TableInfo tableInfo) {
@@ -178,17 +176,11 @@ public class CodeGenerator {
             }
         });
 
-
         cfg.setFileOutConfigList(focList);
         mpg.setCfg(cfg);
         mpg.setTemplate(new TemplateConfig().setXml(null));
-
-
         mpg.setStrategy(strategy);
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
     }
-
-
-
 }

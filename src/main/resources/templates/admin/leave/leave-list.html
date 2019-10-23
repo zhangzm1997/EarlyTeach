@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:include="_meta :: header">
+    <title>列表</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>请假管理 <span
+            class="c-gray en">&gt;</span>请假信息模块<a class="btn btn-success radius r"
+                                                style="line-height:1.6em;margin-top:3px"
+                                                href="javascript:location.replace(location.href);" title="刷新"><i
+                class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+    <form action="#" th:action="@{/admin/leave}" method="post">
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <fieldset class="layui-elem-field">
+                <legend>请假信息列表</legend>
+                <div class="layui-field-box">
+
+                    <hr style="margin: 0">
+                    <div class="cl pd-5 bg-1 bk-gray">
+						<span class="l">
+						<a href="javascript:;"
+                           onclick="deleteAll('/admin/leave/deleteAll')"
+                           class="layui-btn  layui-btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+						<a href="javascript:;"
+                           onclick="layer_show('添加','/admin/leave/addBefore',900,500)"
+                           class="layui-btn  layui-btn-normal radius"><i class="Hui-iconfont">&#xe600;</i> 添加</a>
+						</span>
+                        <span class="r wei-height">共有数据：<strong th:text="${pageInfo.total}"></strong> 条</span>
+                    </div>
+                    <hr>
+
+                    <div class="cl pd-5 bg-1 bk-gray ">
+                        <div class="searchByField">
+                                         <input type="input-text" class="input-text" th:value="${searchInfo.studentNum}" name="studentNum" placeholder="搜索请假学生学号" sid="studentNum"/>
+                                         <input type="input-text" class="input-text" th:value="${searchInfo.leaveReason}" name="leaveReason" placeholder="搜索请假原因" sid="leaveReason"/>
+                                         <input type="input-text" class="input-text" th:value="${searchInfo.courseId}" name="courseId" placeholder="搜索请假课程id" sid="courseId"/>
+                                         <!--<input type="input-text" class="input-text" th:value="${searchInfo.leaveTime}" name="leaveTime" placeholder="搜索请假课程时间" sid="leaveTime"/>-->
+                                         <!--<input type="input-text" class="input-text" th:value="${searchInfo.leaveNum}" name="leaveNum" placeholder="搜索该课程请假次数" sid="leaveNum"/>-->
+                                         <!--<input type="input-text" class="input-text" th:value="${searchInfo.leaveResult}" name="leaveResult" placeholder="搜索请假结果" sid="leaveResult"/>-->
+                                         <input type="input-text" class="input-text" th:value="${searchInfo.leaveTeacherNum}" name="leaveTeacherNum" placeholder="搜索课程老师工号" sid="leaveTeacherNum"/>
+                                         <input type="input-text" class="input-text" th:value="${searchInfo.changeCourseId}" name="changeCourseId" placeholder="搜索调课课程id" sid="changeCourseId"/>
+                                         <!--<input type="input-text" class="input-text" th:value="${searchInfo.changeTime}" name="changeTime" placeholder="搜索调课课程时间" sid="changeTime"/>-->
+                                         <!--<input type="input-text" class="input-text" th:value="${searchInfo.changeTeacherNum}" name="changeTeacherNum" placeholder="搜索调课老师工号" sid="changeTeacherNum"/>-->
+                                         <input type="input-text" class="input-text" th:value="${searchInfo.changeResult}" name="changeResult" placeholder="搜索调课结果(0失败1成功)" sid="changeResult"/>
+                            <button type="submit"
+                                    class="layui-btn  layui-btn-success radius"><i
+                                        class="Hui-iconfont">&#xe665;</i> 搜索
+                            </button>
+                        </div>
+                    </div>
+
+                    <table class="layui-table text-c">
+                        <thead>
+                        <tr class="text-c">
+                            <th width="25"><input type="checkbox" name="" value=""/></th>
+                            <th width="25">序号</th>
+                                <th width="40">请假学生学号</th>
+                                <th width="40">请假原因</th>
+                                <th width="40">请假课程id</th>
+                                <!--<th width="40">请假课程时间</th>-->
+                                <!--<th width="40">该课程请假次数</th>-->
+                                <!--<th width="40">请假结果</th>-->
+                                <th width="40">课程老师工号</th>
+                                <th width="40">调课课程id</th>
+                                <!--<th width="40">调课课程时间</th>-->
+                                <!--<th width="40">调课老师工号</th>-->
+                                <th width="40">调课结果(0失败1成功)</th>
+                            <th width="100">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="text-c" th:if="${pageInfo.list.size() == 0}">
+                            <td colspan="15"><strong>暂无数据</strong></td>
+                        </tr>
+                        <tr class="text-c" th:each="leave,count:${pageInfo.list}">
+                            <td><input type="checkbox" value="1" th:value="${leave.id}"
+                                       name="id"/></td>
+                            <td th:text="${count.count}"></td>
+                                    <td th:text="${leave.studentNum}"></td>
+                                    <td th:text="${leave.leaveReason}"></td>
+                                    <td th:text="${leave.courseId}"></td>
+                                    <!--<td th:text="${leave.leaveTime}"></td>-->
+                                    <!--<td th:text="${leave.leaveNum}"></td>-->
+                                    <!--<td th:text="${leave.leaveResult}"></td>-->
+                                    <td th:text="${leave.leaveTeacherNum}"></td>
+                                    <td th:text="${leave.changeCourseId}"></td>
+                                    <!--<td th:text="${leave.changeTime}"></td>-->
+                                    <!--<td th:text="${leave.changeTeacherNum}"></td>-->
+                                    <td th:text="${leave.changeResult}"></td>
+                            <td class="td-manage">
+                                <a title="编辑" href="javascript:;"
+                                   th:onclick="'javascript:layer_show(\'编辑\',\'/admin/'+'leave'+'/editBefore/'+${leave.id}+'\',900,500)'"
+                                   class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                                <a title="删除" href="javascript:;"
+                                   th:onclick="'javascript:deleteById(\'/admin/'+'leave'+'/delete/'+${leave.id}+'\')'"
+                                   class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </fieldset>
+        </div>
+        <div th:include="_pagination :: page"></div>
+    </form>
+</div>
+<!--_footer 作为公共模版分离出去-->
+<div th:replace="_footer :: footerjs">
+</div>
+<!--/_footer 作为公共模版分离出去-->
+<script>
+    //日期时间范围选择
+    laydate.render({
+
+    });
+    lay('.timeSpace').each(function(){
+        laydate.render({
+            elem: this
+            ,type: 'datetime'
+            ,range: true //或 range: '~' 来自定义分割字符
+        });
+    });
+
+</script>
+</body>
+</html>
