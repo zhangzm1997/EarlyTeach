@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * @ClassName RestStudentController
  * @Description 老师信息
- * @Author Administrator  闫志行
+ * @Author 张泽敏
  * @date 2019/4/26 17:41
  * @Version 1.0
  */
@@ -29,7 +29,7 @@ public class RestTeacherController extends BaseController {
     private ITeacherService teacherService;
 
     /* *
-     * @Author 闫志行
+     * @Author 张泽敏
      * @Description //老师注册
      * @Param teacher
      * @return
@@ -41,7 +41,7 @@ public class RestTeacherController extends BaseController {
     }
 
     /* *
-     * @Author 闫志行
+     * @Author 张泽敏
      * @Description //老师登录
      * @Param teacher_num, pwd
      * @return
@@ -61,7 +61,7 @@ public class RestTeacherController extends BaseController {
     }
 
     /* *
-     * @Author 闫志行
+     * @Author 张泽敏
      * @Description //老师修改个人信息
      * @Param teacher
      * @return
@@ -72,7 +72,7 @@ public class RestTeacherController extends BaseController {
         return toAjax(teacherService.updateById(teacher));
     }
 
-    /* * @Author 闫志行
+    /* * @Author 张泽敏
      * @Description //老师查看个人信息
      * @Param student
      * @return

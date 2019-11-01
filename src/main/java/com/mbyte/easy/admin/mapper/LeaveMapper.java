@@ -13,14 +13,14 @@ import java.util.List;
  *  Mapper 接口
  * </p>
  *
- * @author 黄润宣
+ * @author 张泽敏
  * @since 2019-04-27
  */
 public interface LeaveMapper extends BaseMapper<Leave> {
 
 //    /* * @Title:
 //     * @Description: //TODO
-//     * @Author: 闫志行
+//     * @Author: 张泽敏
 //     * @Date: 2019/5/7 9:54
 //     * @Param
 //     * @Return

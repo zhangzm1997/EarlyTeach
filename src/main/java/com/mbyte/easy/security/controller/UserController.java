@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * 管理员控制类
  * 
- * @author 杨凯旋
+ * @author 张泽敏
  *
  */
 @Controller

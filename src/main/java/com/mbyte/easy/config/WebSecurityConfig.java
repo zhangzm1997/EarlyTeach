@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Spring Security配置
  *
- * @author 王震
+ * @author 张泽敏
  *
  */
 @Configuration

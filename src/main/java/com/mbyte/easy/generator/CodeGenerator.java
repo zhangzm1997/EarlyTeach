@@ -20,7 +20,7 @@ import java.util.*;
  *  自动生成工具类
  * </p>
  *
- * @author 王震
+ * @author 张泽敏
  * @since 2019-03-11
  */
 public class CodeGenerator {
@@ -54,7 +54,7 @@ public class CodeGenerator {
         gc.setOutputDir(projectPath + "/src/main/java");
         gc.setAuthor("");
         gc.setOpen(false);
-        gc.setAuthor("黄润宣");
+        gc.setAuthor("张泽敏");
         mpg.setGlobalConfig(gc);
 
         Properties properties = new Properties();

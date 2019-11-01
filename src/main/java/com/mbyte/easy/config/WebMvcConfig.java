@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * Spring mvc 配置
- * @author nicc
+ * @author 张泽敏
  *
  */
 @Configuration

@@ -1,7 +1,7 @@
 package com.mbyte.easy.security.service;
 /**
  *     角色服务抽象类
- * @author wangzhen
+ * @author 张泽敏
  *
  */
 

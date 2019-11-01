@@ -11,7 +11,7 @@ import java.io.IOException;
 
 /**
  * FileName: FrontAuthFilter
- * Author:   wpw
+ * Author:   张泽敏
  * Date:     19-2-21 上午10:14
  * Description: 前台登录校验过滤器
  * History:

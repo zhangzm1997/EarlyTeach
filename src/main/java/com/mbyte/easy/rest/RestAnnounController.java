@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * @ClassName RestAnnounController
  * @Description TODO
- * @Author Administrator  闫志行
+ * @Author 张泽敏
  * @date 2019/4/27 10:17
  * @Version 1.0
  */
@@ -24,7 +24,7 @@ import java.util.List;
 public class RestAnnounController extends BaseController {
     @Autowired
     private IAnnounService announService;
-    /* * @Author 闫志行
+    /* * @Author 张泽敏
      * @Description //老师或学生查看公告
      * @Param
      * @return

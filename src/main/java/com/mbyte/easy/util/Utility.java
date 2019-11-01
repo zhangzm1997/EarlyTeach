@@ -11,8 +11,8 @@ import java.util.Random;
  * 
  * @Title: Utility
  * @Description:公用工具类
- * @Author:杨凯旋
- * @Since:2017年7月20日
+ * @Author:张泽敏
+ * @Since:2019年4月20日
  * @Version:1.1.0
  */
 public class Utility {

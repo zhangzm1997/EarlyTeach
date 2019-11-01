@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * @ClassName RestStudentCourseController
  * @Description TODO
- * @Author Administrator  闫志行
+ * @Author 张泽敏
  * @date 2019/4/27 10:21
  * @Version 1.0
  */
@@ -27,7 +27,7 @@ public class RestStudentCourseController extends BaseController {
     @Autowired
     private IStudentCourseService studentCourseService;
 
-    /* * @Author 闫志行
+    /* * @Author 张泽敏
      * @Description //学生添加预约课程
      * @return
      **/
@@ -38,7 +38,7 @@ public class RestStudentCourseController extends BaseController {
             return toAjax(studentCourseService.save(studentCourse));
     }
 
-    /* * @Author 闫志行
+    /* * @Author 张泽敏
      * @Description //学生添加购买课程
      * @Param
      * @return
@@ -49,7 +49,7 @@ public class RestStudentCourseController extends BaseController {
             return toAjax(studentCourseService.save(studentCourse));
     }
 
-    /* * @Author 闫志行
+    /* * @Author 张泽敏
      * @Description //学生添加签到课程
      * @Param   先查看是否添加该课程，已经添加则可签订，否则error
      * @return
@@ -59,7 +59,7 @@ public class RestStudentCourseController extends BaseController {
     public AjaxResult addCheckCourse(StudentCourse studentCourse){
         return toAjax(studentCourseService.updateById(studentCourse));
     }
-    /* * @Author 闫志行
+    /* * @Author 张泽敏
      * @Description //学生查看所选课程信息，包括预约、购买、签到
      * @Param
      * @return

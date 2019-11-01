@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * @ClassName RestStudentController
  * @Description 学生信息
- * @Author Administrator  闫志行
+ * @Author 张泽敏
  * @date 2019/4/26 17:41
  * @Version 1.0
  */
@@ -29,7 +29,7 @@ public class RestStudentController extends BaseController {
     private IStudentService studentService;
 
     /* *
-     * @Author 闫志行
+     * @Author 张泽敏
      * @Description //学生注册
      * @Param student
      * @return 
@@ -40,7 +40,7 @@ public class RestStudentController extends BaseController {
         return toAjax(studentService.save(student));
     }
     /* *
-     * @Author 闫志行
+     * @Author 张泽敏
      * @Description //学生登录
      * @Param student_num, pwd
      * @return 
@@ -62,7 +62,7 @@ public class RestStudentController extends BaseController {
         return error("密码错误");
     }
 
-    /* * @Author 闫志行
+    /* * @Author 张泽敏
      * @Description //学生查看个人信息
      * @Param student
      * @return
@@ -76,7 +76,7 @@ public class RestStudentController extends BaseController {
     }
 
     /* *
-     * @Author 闫志行
+     * @Author 张泽敏
      * @Description //学生修改个人信息
      * @Param student
      * @return

@@ -12,12 +12,12 @@ import java.util.List;
  *  Mapper 接口
  * </p>
  *
- * @author 黄润宣
+ * @author 张泽敏
  * @since 2019-04-26
  */
 public interface StudentCourseMapper extends BaseMapper<StudentCourse> {
 
-    /* * @Author 闫志行
+    /* * @Author 张泽敏
      * @Description //查询登录学生所选的所有课程
      * @Param [studentCourse]
      * @return

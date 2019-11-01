@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 /**
  * @ClassName StudentCourseVO
  * @Description TODO
- * @Author Administrator  闫志行
+ * @Author Administrator  张泽敏
  * @date 2019/5/5 20:40
  * @Version 1.0
  */

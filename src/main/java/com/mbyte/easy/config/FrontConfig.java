@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * 
  * 定义前端常量信息
- * @author Administrator
+ * @author 张泽敏
  *
  */
 public abstract class FrontConfig {

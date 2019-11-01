@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Scope;
 /**
  * @program: design-background
  * @description: Spring Druid拦截器
- * @author: 王震
+ * @author: 张泽敏
  * @create: 2019-02-20 21:15
  **/
 @Configuration

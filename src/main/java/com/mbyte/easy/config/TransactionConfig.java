@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 import javax.sql.DataSource;
 
 /**
- * @Author 王震
+ * @Author 张泽敏
  * @Description //TODO 指定事务管理器
  * @Date 11:42 2019/1/26
  * @Param 

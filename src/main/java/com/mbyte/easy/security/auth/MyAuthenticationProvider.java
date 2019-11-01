@@ -30,7 +30,7 @@ import java.util.List;
 
 /**
  * 自定义校验方式
- * @author 王震
+ * @author 张泽敏
  *
  */
 @Component

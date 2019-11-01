@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * @ClassName RestCoursecontroller
  * @Description TODO
- * @Author Administrator  闫志行
+ * @Author 张泽敏
  * @date 2019/4/27 10:18
  * @Version 1.0
  */
@@ -27,7 +27,7 @@ public class RestCoursecontroller extends BaseController {
     @Autowired
     private ICourseService courseService;
 
-    /* * @Author 闫志行
+    /* * @Author 张泽敏
      * @Description //学生查看推出课程信息
      * @Param
      * @return
@@ -39,7 +39,7 @@ public class RestCoursecontroller extends BaseController {
         return success(courses);
     }
 
-    /* * @Author 闫志行
+    /* * @Author 张泽敏
      * @Description //老师查看所教授课程
      * @Param
      * @return

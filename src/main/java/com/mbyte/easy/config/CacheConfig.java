@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @ClassName: CacheConfig
  * @Description: 缓存配置
- * @Author: lxt
+ * @Author: 张泽敏
  * @Date: 2019-02-14 18:12
  * @Version 1.0
  **/
@@ -19,7 +19,7 @@ public class CacheConfig {
     /**
      * @Title: classKey
      * @Description: 以【类名】为缓存的key值 一般用于【selectALL】查询
-     * @Author: lxt
+     * @Author: 张泽敏
      * @Date: 2019-03-01 15:42
      * @return: org.springframework.cache.interceptor.KeyGenerator
      * @throws:
@@ -37,7 +37,7 @@ public class CacheConfig {
     /**
      * @Title: classMethodParamsKey
      * @Description: 以【类名+方法名+参数】为缓存的key值
-     * @Author: lxt
+     * @Author: 张泽敏
      * @Date: 2019-03-01 15:43
      * @return: org.springframework.cache.interceptor.KeyGenerator
      * @throws:

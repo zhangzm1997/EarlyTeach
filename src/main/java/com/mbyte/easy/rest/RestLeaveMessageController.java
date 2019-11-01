@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * @ClassName RestLeaveMessageController
  * @Description TODO
- * @Author Administrator  闫志行
+ * @Author 张泽敏
  * @date 2019/4/27 10:20
  * @Version 1.0
  */
@@ -28,7 +28,7 @@ public class RestLeaveMessageController extends BaseController {
     @Autowired
     private ILeaveMessageService leaveMessageService;
 
-    /* * @Author 闫志行
+    /* * @Author 张泽敏
      * @Description //学生或老师查看留言
      * @Param
      * @return
@@ -40,7 +40,7 @@ public class RestLeaveMessageController extends BaseController {
         return success(leaveMessages);
     }
 
-    /* * @Author 闫志行
+    /* * @Author 张泽敏
      * @Description //学生或老师添加留言
      * @Param
      * @return
@@ -51,7 +51,7 @@ public class RestLeaveMessageController extends BaseController {
         return toAjax(leaveMessageService.save(leaveMessage));
     }
 
-    /* * @Author 闫志行
+    /* * @Author 张泽敏
      * @Description //学生或老师回复留言(相当于修改留言这一条数据内容，已经回复则不可再次回复)
      * @Param
      * @return

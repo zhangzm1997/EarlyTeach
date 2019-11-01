@@ -8,7 +8,7 @@ import lombok.experimental.Accessors;
 /**
  * @ClassName: LeaveVO
  * @Description: to do
- * @Author: 闫志行
+ * @Author: 张泽敏
  * @Date: 2019-05-07 10:00
  * @Version: 1.0
  */

@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * @ClassName RestLeaveController
  * @Description TODO
- * @Author Administrator  闫志行
+ * @Author 张泽敏
  * @date 2019/4/27 10:20
  * @Version 1.0
  */
@@ -28,7 +28,7 @@ public class RestLeaveController extends BaseController {
     @Autowired
     private ILeaveService leaveService;
 
-    /* * @Author 闫志行
+    /* * @Author 张泽敏
      * @Description // 学生添加调课信息，如果该课调课已经有两次，则不准予调课能收到消息、乙收不到消息
      * @Param
      * @return
@@ -39,7 +39,7 @@ public class RestLeaveController extends BaseController {
             return toAjax(leaveService.save(leave));
     }
 
-    /* * @Author 闫志行
+    /* * @Author 张泽敏
      * @Description // 老师甲查看请假信息
      * @Param
      * @return
@@ -53,7 +53,7 @@ public class RestLeaveController extends BaseController {
         return success(leaves);
     }
 
-    /* * @Author 闫志行
+    /* * @Author 张泽敏
      * @Description //老师甲编辑请假信息(0失败1成功)
      * @Param
      * @return
@@ -65,7 +65,7 @@ public class RestLeaveController extends BaseController {
             return toAjax(leaveService.updateById(leave));
     }
 
-    /* * @Author 闫志行
+    /* * @Author 张泽敏
      * @Description // 学生查看全部请假信息，包括请假结果
      * @Param
      * @return
@@ -79,7 +79,7 @@ public class RestLeaveController extends BaseController {
         return success(leaves);
     }
 
-//    /* * @Author 闫志行
+//    /* * @Author 张泽敏
 //     * @Description // 老师乙查看调课信息
 //     * @Param
 //     * @return
@@ -97,7 +97,7 @@ public class RestLeaveController extends BaseController {
 //        }
 //    }
 //
-//    /* * @Author 闫志行
+//    /* * @Author 张泽敏
 //     * @Description // 老师乙回复请假信息，是否同意(0失败1成功),同意与否，则甲老师和学生都能看到结果，请假次数要自动加一
 //     * @Param
 //     * @return

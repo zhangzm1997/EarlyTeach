@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * 项目权限资源控制类
  * 
- * @author 王震
+ * @author 张泽敏
  *
  */
 @Controller
